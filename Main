@@ -150,7 +150,7 @@ for i,v in getgc(true) do
 	end
 end
 
-function Utils:NewSound(soundId, volume, timePOS)
+function Utils:NewSound(soundId, volume, timePOS) -- Thank you game devs
 	local Sound = Instance.new("Sound")
 	Sound.SoundId = soundId
 	Sound.Volume = volume
@@ -163,7 +163,7 @@ function Utils:NewSound(soundId, volume, timePOS)
 	return Sound
 end
 
-local function Sub(TextLabel, Text)
+local function Sub(TextLabel, Text) -- Thank you game devs
 	for i = 1, #Text do
 		TextLabel.Text = string.sub(Text, 1, i)
 		Utils:NewSound("rbxassetid://9120299677", 0.5)
@@ -171,7 +171,7 @@ local function Sub(TextLabel, Text)
 	end
 end
 
-function Utils:Notify(message: string, color: "Red" | "Green") -- Credits to the game devs for having this function in their scripts.
+function Utils:Notify(message: string, color: "Red" | "Green") -- Thank you game devs
 	if not message then return end
 	if typeof(message) ~= "string" then return end
 	if color and typeof(color) ~= "string" then return end
@@ -195,7 +195,7 @@ function Utils:Notify(message: string, color: "Red" | "Green") -- Credits to the
 	Debris:AddItem(NotifyLabel, 0.4)
 end
 
-function Functions:GetItemFrame(item: string)
+function Functions:GetItemFrame(item: string) -- Thank you game devs
 	if type(item) ~= "string" then
 		return Utils:Notify(tostring(item).. " isn't a string!")
 	end
@@ -207,7 +207,7 @@ function Functions:GetItemFrame(item: string)
 	end
 end
 
-function Utils:DraggingEnabled(frame, parent)
+function Utils:DraggingEnabled(frame, parent) -- Credits to venyx source for this function
 	parent = parent or frame
 
 	-- stolen from wally or kiriot, kek
@@ -281,7 +281,7 @@ function Functions:DrenchedFinally()
 	end
 end
 
-function Functions:UnEquip()
+function Functions:UnEquip() -- Thank you game devs
 	if InventoryFrame == nil then
 		return Utils:Notify("Your Inventory Frame doesn't exist! Please rejoin!", "Red")
 	end
@@ -293,7 +293,7 @@ function Functions:UnEquip()
 	end
 end
 
-function Functions:Equip(tool: string)
+function Functions:Equip(tool: string) -- Thank you game devs
 	if type(tool) ~= "string" then
 		Utils:Notify(tostring(tool).. " isn't a string!", "Red")
 	end
@@ -305,7 +305,7 @@ function Functions:Equip(tool: string)
 	end
 end
 
-function Utils:RandomString()
+function Utils:RandomString() -- thank you infinite yield
 	local length = Random.new():NextInteger(10,20)
 	local array = {};
 	for i = 1, length do
@@ -314,7 +314,7 @@ function Utils:RandomString()
 	return table.concat(array)
 end
 
-function Utils:GetDistance(v: BasePart) 
+function Utils:GetDistance(v: BasePart)
 	if Character then 
 		local RootPart: BasePart = HumanoidRootPart
 		if (RootPart) then 
@@ -482,6 +482,7 @@ local funcs = {
 }
 
 function Functions:LoadUI()
+	-- This ui is meant for 1080p moniters.
 	local ScreenGui = Instance.new("ScreenGui");
 	local Frame = Instance.new("Frame");
 	local Title = Instance.new("TextLabel");
